@@ -36,6 +36,8 @@ A comprehensive full-stack Python toolkit that makes common tasks ridiculously s
 // - Interactive utility cards
 // - Error handling and loading states
 // - Mobile-friendly responsive layout
+// - Analytics dashboard with real-time metrics
+// - Clean interface with essential components only
 ```
 
 ---
@@ -65,6 +67,8 @@ A comprehensive full-stack Python toolkit that makes common tasks ridiculously s
 - **Frontend**: Modern responsive web UI with gradients
 - **Real-time**: Live API integration with error handling
 - **Professional**: Beautiful design with smooth animations
+- **Dashboard**: Analytics interface with essential metrics only
+- **Clean**: Streamlined interface without unnecessary components
 
 ---
 
@@ -100,6 +104,8 @@ truncate("Long text...", 10) # → "Long te..."
 // - API integration with loading states
 // - Error handling with user-friendly messages
 // - Health status monitoring
+// - Analytics dashboard with essential metrics
+// - Clean, focused interface without clutter
 ```
 
 ---
@@ -158,7 +164,9 @@ pydantic>=2.0.0     # Data validation and settings
 - Loading states and error messages
 - Health status indicator
 - Gradient backgrounds and smooth transitions
-- Mobile-responsive design -->
+- Mobile-responsive design
+- Analytics dashboard with essential metrics
+- Clean, focused interface without unnecessary components -->
 ```
 
 ### **Frontend Dependencies**
@@ -191,8 +199,9 @@ python app.py
 # Frontend setup (separate terminal)
 cd frontend
 npm install
-npm start
+node server.js
 # Frontend runs on http://localhost:3000
+# Access dashboard at http://localhost:3000/dashboard.html
 ```
 
 ### **Docker Deployment (Future)**
@@ -220,7 +229,8 @@ new-/
 ├── frontend/               # Modern web interface
 │   ├── server.js          # Express server setup
 │   ├── public/            # Static web assets
-│   │   └── index.html     # Beautiful web UI
+│   │   ├── index.html     # Beautiful web UI
+│   │   └── dashboard.html # Analytics dashboard
 │   ├── package.json       # Node.js dependencies
 │   └── README.md          # Frontend-specific documentation
 ├── docs/                   # Additional documentation
@@ -261,7 +271,9 @@ curl -X POST http://localhost:8000/greet \
 ```bash
 # Test web interface
 # Open http://localhost:3000 in browser
+# Open http://localhost:3000/dashboard.html for analytics
 # All utilities should work with real API calls
+# Dashboard should show only essential metrics
 ```
 
 ---
@@ -271,7 +283,7 @@ curl -X POST http://localhost:8000/greet \
 - **Total Lines of Code**: ~500
 - **Python Functions**: 4 essential utilities
 - **API Endpoints**: 5 REST endpoints
-- **Web Pages**: 1 interactive interface
+- **Web Pages**: 2 interactive interfaces (Utilities + Dashboard)
 - **Test Cases**: 12 comprehensive tests
 - **Dependencies**: 0 (Python core) + 3 (Node.js)
 - **Python Versions**: 3.6+
@@ -294,7 +306,9 @@ python app.py  # Development server
 ```bash
 cd frontend
 npm install
-npm run dev  # Development with auto-reload
+node server.js  # Development server
+# Access at http://localhost:3000
+# Dashboard at http://localhost:3000/dashboard.html
 ```
 
 ### **Production Deployment**
@@ -303,7 +317,8 @@ npm run dev  # Development with auto-reload
 uvicorn app:app --host 0.0.0.0 --port 8000
 
 # Frontend
-npm start  # Production mode
+node server.js  # Production mode
+# Serves both utilities and dashboard
 ```
 
 ---
@@ -344,7 +359,8 @@ cd new-
 cd backend && pip install -r requirements.txt && python app.py
 
 # Frontend (Terminal 2)  
-cd frontend && npm install && npm start
+cd frontend && npm install && node server.js
 
-# Visit http://localhost:3000
+# Visit http://localhost:3000 for utilities
+# Visit http://localhost:3000/dashboard.html for analytics
 ```
