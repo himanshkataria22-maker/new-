@@ -144,6 +144,29 @@
         .status.unhealthy {
             border-left: 4px solid #e74c3c;
         }
+
+        .nav-buttons {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -152,6 +175,11 @@
             <h1>new-</h1>
             <p>Essential Python Utilities - Web Interface</p>
         </header>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn">Utilities</a>
+            <a href="dashboard.html" class="nav-btn">Dashboard</a>
+        </div>
 
         <div id="status" class="status">
             <h3>API Status</h3>

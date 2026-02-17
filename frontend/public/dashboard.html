@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .card.purple::before { background: linear-gradient(90deg, #667eea, #764ba2); }
+        .card.green::before { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+        .card.orange::before { background: linear-gradient(90deg, #f39c12, #e67e22); }
+        .card.pink::before { background: linear-gradient(90deg, #e91e63, #9c27b0); }
+
+        .card-header {
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            margin-bottom: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .feature::before {
+            content: '✓';
+            margin-right: 10px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .metrics {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }
+
+        .metric-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(39, 174, 96, 0.2);
+            color: #27ae60;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(39, 174, 96, 0.3);
+        }
+
+        .enhanced-tag {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(102, 126, 234, 0.2);
+            color: #667eea;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-buttons {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Analytics Dashboard</h1>
+            <p>Real-time Data Processing & Analysis</p>
+        </header>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn">Utilities</a>
+            <a href="dashboard.html" class="nav-btn">Dashboard</a>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- The Analyst's Edge - Enhanced -->
+            <div class="card purple">
+                <div class="status-badge">Active</div>
+                <div class="card-header">
+                    <h2 class="card-title">The Analyst's Edge - Enhanced</h2>
+                    <p class="card-subtitle">Advanced Analytics Platform</p>
+                </div>
+                <div class="features">
+                    <div class="feature">Advanced Injury Prediction</div>
+                    <div class="feature">Real-Time Strategy Analysis</div>
+                </div>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="metric-label">Accuracy</div>
+                        <div class="metric-value">92.0%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Impact</div>
+                        <div class="metric-value">Very High</div>
+                    </div>
+                </div>
+                <div class="enhanced-tag">Enhanced with Real-Time Data</div>
+            </div>
+
+            <!-- The Fan Experience - Enhanced -->
+            <div class="card green">
+                <div class="status-badge">Active</div>
+                <div class="card-header">
+                    <h2 class="card-title">The Fan Experience - Enhanced</h2>
+                    <p class="card-subtitle">Engagement Optimization</p>
+                </div>
+                <div class="features">
+                    <div class="feature">Advanced Behavior Analytics</div>
+                    <div class="feature">Real-Time Personalization</div>
+                </div>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="metric-label">Engagement</div>
+                        <div class="metric-value">89%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Impact</div>
+                        <div class="metric-value">Very High</div>
+                    </div>
+                </div>
+                <div class="enhanced-tag">Enhanced with Real-Time Data</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
