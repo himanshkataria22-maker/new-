@@ -1,38 +1,19 @@
-# Contributing to new-
+# Contributing
 
-Thank you for your interest in contributing to this project! This document provides guidelines and information for contributors.
+Want to contribute? Cool! Here's how:
 
-## How to Contribute
+## How to contribute
 
-### Reporting Issues
-- Use the GitHub issue tracker to report bugs
-- Provide detailed information about the issue
-- Include steps to reproduce the problem
+1. Fork this repo
+2. Make your changes
+3. Test them
+4. Send a pull request
 
-### Making Changes
-1. Fork the repository
-2. Create a new branch for your feature or bugfix
-3. Make your changes
-4. Test your changes thoroughly
-5. Submit a pull request
+## Setup
 
-### Code Style
-- Follow existing code conventions
-- Write clear, descriptive commit messages
-- Add comments where necessary
+```bash
+git clone https://github.com/himanshkataria22-maker/new-.git
+cd new-
+```
 
-## Development Setup
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/himanshkataria22-maker/new-.git
-   cd new-
-   ```
-
-2. Install dependencies (if any)
-
-3. Run the project (if applicable)
-
-## License
-
-By contributing to this project, you agree that your contributions will be licensed under the MIT License.
+That's it. Keep it simple.
