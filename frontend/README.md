@@ -35,7 +35,6 @@ npm start
 
 ## 🎨 Design
 
-- **Color Scheme**: Purple gradient theme
 - **Typography**: Clean, modern fonts
 - **Layout**: Grid-based responsive layout
 - **Interactions**: Hover effects and smooth transitions
