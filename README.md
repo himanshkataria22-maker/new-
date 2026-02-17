@@ -5,12 +5,15 @@
 ![Tests](https://img.shields.io/badge/Tests-100%25-brightgreen)
 ![Dependencies](https://img.shields.io/badge/Dependencies-Zero-red)
 ![Code Quality](https://img.shields.io/badge/Code%20Quality-A%2B-brightgreen)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.104.0-green)
+![Node.js](https://img.shields.io/badge/Node.js-18%2B-green)
+![Express](https://img.shields.io/badge/Express-4.18-blue)
 
-A lightweight Python toolkit that makes common tasks ridiculously simple with zero dependencies and 100% test coverage.
+A lightweight Python toolkit that makes common tasks ridiculously simple with zero dependencies and 100% test coverage. Now with a full-stack web interface!
 
 ---
 
-## 🚀 **Enhanced Features**
+## **Enhanced Features**
 
 ### **Zero Dependencies Architecture**
 - Pure Python implementation
@@ -30,11 +33,17 @@ A lightweight Python toolkit that makes common tasks ridiculously simple with ze
 - Edge case handling
 - Continuous integration ready
 
+### **Full-Stack Web Interface**
+- **Backend**: FastAPI REST API
+- **Frontend**: Modern responsive web UI
+- **Real-time**: Live API integration
+- **Professional**: Beautiful gradient design
+
 ---
 
-## ⚡ **Core Functionality**
+## **Core Functionality**
 
-### **String Manipulation**
+### **Python Library**
 ```python
 from src.utils import greet, slugify, truncate
 
@@ -44,18 +53,30 @@ slugify("Hello World!") # → "hello-world"
 truncate("Long text...", 10) # → "Long te..."
 ```
 
-### **Version Management**
-```python
-from src.utils import format_version
+### **Web Interface**
+```bash
+# Start backend
+cd backend && python app.py
 
-# Professional version formatting
-format_version("1.0.0") # → "v1.0.0"
-format_version(2.5)      # → "v2.5"
+# Start frontend  
+cd frontend && npm start
+
+# Access at http://localhost:3000
+```
+
+### **REST API**
+```bash
+# API endpoints
+POST /greet          - Generate greeting
+POST /format-version - Format version
+POST /slugify        - Create slug
+POST /truncate       - Truncate text
+GET  /health         - Health check
 ```
 
 ---
 
-## 🎯 **Advanced Features**
+## **Advanced Features**
 
 ### **Smart Text Processing**
 - **Slugify**: Convert any text to URL-friendly format
@@ -63,25 +84,37 @@ format_version(2.5)      # → "v2.5"
 - **Greet**: Personalized message generation
 - **Version Format**: Professional version string handling
 
-### **Production Ready**
-- **Error Handling**: Robust error management
+### **Web Application**
+- **Modern UI**: Gradient backgrounds with smooth animations
+- **Responsive**: Mobile-friendly interface
+- **Interactive**: Real-time feedback and visual indicators
+- **API Integration**: Seamless backend connectivity
+
+### **Error Handling**: Robust error management
 - **Performance**: Optimized for speed
 - **Compatibility**: Python 3.6+ support
 - **Documentation**: Comprehensive docstrings
 
-### **Developer Experience**
-- **One-line Install**: `pip install new-`
-- **Clear API**: Intuitive function names
-- **Examples**: Usage examples for every function
-- **Type Hints**: Better IDE integration
-
 ---
 
-## 📦 **Installation & Usage**
+## **Installation & Usage**
 
-### **Quick Start**
+### **Python Library**
 ```bash
 pip install new-
+```
+
+### **Full Stack Setup**
+```bash
+# Backend setup
+cd backend
+pip install -r requirements.txt
+python app.py
+
+# Frontend setup  
+cd frontend
+npm install
+npm start
 ```
 
 ### **Basic Usage**
@@ -95,21 +128,44 @@ slug = slugify("My Awesome Project!")
 summary = truncate("This is a very long text that needs to be shortened", 20)
 ```
 
-### **Demo Mode**
+---
+
+## **Project Structure**
+
 ```bash
-python src/main.py
+new-/
+├── src/                    # Python library
+│   ├── main.py            # Demo script
+│   └── utils.py           # Utility functions
+├── tests/                  # Test suite
+│   └── test_utils.py      # Unit tests
+├── backend/                # FastAPI web server
+│   ├── app.py             # API endpoints
+│   └── requirements.txt   # Backend dependencies
+├── frontend/               # Web interface
+│   ├── server.js          # Express server
+│   ├── public/            # Static files
+│   │   └── index.html     # Web UI
+│   └── package.json       # Node.js dependencies
+├── docs/                   # Documentation
+├── setup.py               # Package configuration
+├── requirements.txt       # Python dependencies
+└── README.md              # This file
 ```
 
 ---
 
-## 🧪 **Testing**
+## **Testing**
 
 ```bash
-# Run all tests
+# Run Python tests
 python -m unittest tests.test_utils -v
 
-# Run specific test
-python -m unittest tests.test_utils.TestUtils.test_greet -v
+# Test API endpoints
+curl http://localhost:8000/health
+
+# Test web interface
+# Open http://localhost:3000 in browser
 ```
 
 **Test Coverage**: 100% 
@@ -117,18 +173,20 @@ python -m unittest tests.test_utils.TestUtils.test_greet -v
 
 ---
 
-## 📊 **Project Stats**
+## **Project Stats**
 
-- **Lines of Code**: ~150
+- **Lines of Code**: ~300
 - **Functions**: 4 essential utilities
 - **Test Cases**: 12 comprehensive tests
-- **Dependencies**: 0 (Zero!)
+- **API Endpoints**: 5 REST endpoints
+- **Web Pages**: 1 interactive interface
+- **Dependencies**: 0 (Python) + 3 (Node.js)
 - **Python Versions**: 3.6+
 - **License**: MIT
 
 ---
 
-## 🤝 **Contributing**
+## **Contributing**
 
 1. Fork the repository
 2. Create a feature branch
