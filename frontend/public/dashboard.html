@@ -175,6 +175,25 @@
             background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
         }
+
+        .graph-container {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .graph-container h4 {
+            margin: 0 0 10px 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        canvas {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -200,6 +219,10 @@
                 <div class="features">
                     <div class="feature">Advanced Injury Prediction</div>
                     <div class="feature">Real-Time Strategy Analysis</div>
+                </div>
+                <div class="graph-container">
+                    <h4>Injury Prediction Trends</h4>
+                    <canvas id="injuryChart" width="280" height="150"></canvas>
                 </div>
                 <div class="metrics">
                     <div class="metric">
@@ -239,5 +262,98 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Injury Prediction Chart
+        const canvas = document.getElementById('injuryChart');
+        const ctx = canvas.getContext('2d');
+        
+        // Sample data for injury prediction trends
+        const injuryData = {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+            datasets: [{
+                label: 'Injury Risk Score',
+                data: [65, 72, 68, 75, 82, 78],
+                borderColor: 'rgba(102, 126, 234, 1)',
+                backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                borderWidth: 2,
+                tension: 0.4
+            }, {
+                label: 'Prediction Accuracy',
+                data: [88, 91, 85, 92, 89, 94],
+                borderColor: 'rgba(39, 174, 96, 1)',
+                backgroundColor: 'rgba(39, 174, 96, 0.2)',
+                borderWidth: 2,
+                tension: 0.4
+            }]
+        };
+
+        // Create gradient background
+        const gradient = ctx.createLinearGradient(0, 0, 0, 150);
+        gradient.addColorStop(0, 'rgba(102, 126, 234, 0.8)');
+        gradient.addColorStop(1, 'rgba(102, 126, 234, 0.1)');
+
+        // Draw the chart
+        function drawChart() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw background
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw grid lines
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+            ctx.lineWidth = 1;
+            
+            for (let i = 0; i <= 5; i++) {
+                const x = (canvas.width / 6) * i;
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height - 30);
+                ctx.stroke();
+            }
+            
+            // Draw data lines
+            injuryData.datasets.forEach((dataset, datasetIndex) => {
+                ctx.strokeStyle = dataset.borderColor;
+                ctx.lineWidth = dataset.borderWidth;
+                ctx.beginPath();
+                
+                dataset.data.forEach((value, index) => {
+                    const x = (canvas.width / 6) * index;
+                    const y = canvas.height - 30 - (value / 100) * (canvas.height - 60);
+                    
+                    if (index === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                });
+                
+                ctx.stroke();
+            });
+        }
+
+        // Initialize chart
+        drawChart();
+        
+        // Animate on hover
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Redraw with hover effect
+            drawChart();
+            
+            // Add hover indicator
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.fillRect(x - 2, 0, 4, canvas.height);
+        });
+
+        canvas.addEventListener('mouseleave', () => {
+            drawChart();
+        });
+    </script>
 </body>
 </html>
