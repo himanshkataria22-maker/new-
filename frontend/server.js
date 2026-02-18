@@ -65,6 +65,21 @@ app.get('/api/health', async (req, res) => {
     }
 });
 
+// Handle missing API endpoints
+app.use('/api/*', (req, res) => {
+    res.status(404).json({ 
+        error: 'Endpoint not found',
+        message: `The endpoint ${req.method} ${req.originalUrl} does not exist`,
+        availableEndpoints: [
+            'POST /api/greet',
+            'POST /api/format-version',
+            'POST /api/slugify', 
+            'POST /api/truncate',
+            'GET /api/health'
+        ]
+    });
+});
+
 // Start server
 app.listen(PORT, () => {
     console.log(`Frontend server running on port ${PORT}`);
