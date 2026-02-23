@@ -65,19 +65,23 @@ app.get('/api/health', async (req, res) => {
     }
 });
 
-// Handle missing API endpoints
-app.use('/api/*', (req, res) => {
-    res.status(404).json({ 
-        error: 'Endpoint not found',
-        message: `The endpoint ${req.method} ${req.originalUrl} does not exist`,
-        availableEndpoints: [
-            'POST /api/greet',
-            'POST /api/format-version',
-            'POST /api/slugify', 
-            'POST /api/truncate',
-            'GET /api/health'
-        ]
-    });
+// Handle 404 for all other routes
+app.use((req, res) => {
+    if (req.path.startsWith('/api/')) {
+        res.status(404).json({ 
+            error: 'Endpoint not found',
+            message: `The endpoint ${req.method} ${req.path} does not exist`,
+            availableEndpoints: [
+                'POST /api/greet',
+                'POST /api/format-version',
+                'POST /api/slugify', 
+                'POST /api/truncate',
+                'GET /api/health'
+            ]
+        });
+    } else {
+        res.status(404).send('Page not found');
+    }
 });
 
 // Start server
